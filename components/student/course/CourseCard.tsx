@@ -4,8 +4,9 @@ import { FaPlayCircle } from "react-icons/fa";
 import { CiCircleQuestion } from "react-icons/ci";
 import { BsFillClockFill } from "react-icons/bs";
 import { FaRegPlayCircle } from "react-icons/fa";
+import Link from "next/link";
 
-const CourseCard = () => {
+const CourseCard = ({ id }: { id: number }) => {
   return (
     <div className="w-full  flex flex-row items-start gap-5">
       <div className="w-max">
@@ -73,10 +74,12 @@ const CourseCard = () => {
             </div>
           </div>
 
-          <button className="flex items-center gap-2 bg-violet-600 text-white px-4 cursor-pointer hover:scale-105 transition-all ease-in-out duration-500  py-2 rounded-md text-sm font-medium hover:bg-violet-700 ">
-            <FaRegPlayCircle className="text-white text-lg" />
-            Start now
-          </button>
+          <Link href={`courses/${id}`}>
+            <button className="flex items-center gap-2 bg-violet-600 text-white px-4 cursor-pointer hover:scale-105 transition-all ease-in-out duration-500  py-2 rounded-md text-sm font-medium hover:bg-violet-700 ">
+              <FaRegPlayCircle className="text-white text-lg" />
+              Start now
+            </button>
+          </Link>
         </div>
       </div>
     </div>
