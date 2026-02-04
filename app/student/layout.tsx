@@ -1,11 +1,12 @@
 import { Sidebar } from "@/components/student";
+
 import React from "react";
 
 const LayoutDashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="h-screen w-full p-5 gap-5 bg-white flex flex-row">
       <Sidebar />
-      <div className="w-full p-5 text-black bg-white shadow-md shadow-slate-300  ">
+      <div className="w-full text-black bg-white shadow-lg border-neutral-300 border rounded-xl shadow-slate-300  ">
         {children}
       </div>
     </div>

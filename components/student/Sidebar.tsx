@@ -1,10 +1,15 @@
+"use client";
 import { sideMenuData } from "@/constant/student/index.constant";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Sidebar = () => {
+  const pathname = usePathname();
+
+  console.log(pathname);
   return (
-    <div className="w-80 bg-white shadow-lg shadow-slate-300 rounded-md pt-10 h-full">
+    <div className="w-80 bg-white shadow-lg border-neutral-300 border rounded-xl pt-10 h-full">
       <div className="px-10">
         <Image
           src={
@@ -25,7 +30,11 @@ const Sidebar = () => {
       <div className="mt-8 px-5 pb-5 flex flex-col gap-1 h-[calc(100%-180px)]  overflow-auto">
         {sideMenuData?.map(({ Icon, id, link, title }) => (
           <Link
-            className="px-4 py-3 hover:bg-[#754FFE] hover:text-white ease-in-out transition-all rounded-lg text-[#0D0C23] text-[14px] "
+            className={`px-4 py-3 rounded-lg text-[14px] ease-in-out transition-all ${
+              pathname === link
+                ? "bg-[#754FFE] text-white"
+                : "bg-white text-[#0D0C23]"
+            } hover:bg-[#754FFE] hover:text-white`}
             key={id}
             href={link}
           >
